@@ -3,13 +3,13 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
+    @user = User.new(user_params) ? User.new(user_params) : User.new_guest
     if @user.save
-    flash[:notice] = "Welcome to the site!"
-    redirect_to "/"
+      flash[:notice] = "Welcome to the site!"
+      redirect_to "/"
     else
-    flash[:alert] = "There was a problem creating your account. Please try again."
-    redirect_to :back
+      flash[:alert] = "There was a problem creating your account. Please try again."
+      redirect_to :back
     end
   end
   private
