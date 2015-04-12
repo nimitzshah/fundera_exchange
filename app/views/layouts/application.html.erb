@@ -13,6 +13,8 @@
   <% if flash[:notice] -%>
     <p class='notice'><%=h flash[:notice] %></p>
   <% end -%>
+  <%if current_user then %> <%= button_to "Sign out", log_out_path,method: "get" %><% end %>
 <%= yield %>
+
 </body>
 </html>

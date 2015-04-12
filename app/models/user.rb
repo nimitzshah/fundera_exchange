@@ -1,14 +1,18 @@
 class User < ActiveRecord::Base
-  attr_accessor :password,:email
+  attr_accessor :password
   validates_confirmation_of :password, unless: :guest?
   before_save :encrypt_password
 
   def self.new_guest
-    new {|user| user.guest = true}
+    new {|user|
+      user.guest    = true
+      user.email    = "guest#{Time.now.to_i}@fakedomain.com"
+      user.password = "fake"
+    }
   end
 
   def name
-    guest? "Guest" : email
+    self[:email].slice(0..(self[:email].index('@')-1))
   end
 
   def encrypt_password

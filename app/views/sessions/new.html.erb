@@ -7,4 +7,4 @@
 <%=submit_tag "Log in" %>
 <%end%>
 <%= button_to "Sign Up",action="users/new",method: :get%>
-<p><%= button_to "Continue as guest", users_path, method: :post %></p>
+<p><%= button_to "Continue as guest",log_in_path, options = { method: :post,name:"guest"} %></p>

@@ -3,7 +3,13 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.authenticate(params[:email],params[:password])
+    if params.keys.include?("guest")
+      @user = User.new_guest
+      @user.save
+    else
+      @user = User.authenticate(params[:email],params[:password])
+    end
+
     if @user
       session[:user_id] = @user.id
       redirect_to "/",:flash => {:notice => "You've been logged in"}
