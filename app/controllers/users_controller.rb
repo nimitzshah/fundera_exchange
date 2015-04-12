@@ -3,9 +3,9 @@ class UsersController < ApplicationController
   end
 
   def create
-    byebug
     @user = User.new(user_params)
     if @user.save
+      flash[:notice] = "Account granted!"
       redirect_to "/"
     else
       flash[:alert] = "There was a problem creating your account. Please try again."

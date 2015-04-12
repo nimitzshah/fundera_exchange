@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get '/' => 'home#index'
+  get '/' => 'posts#index'
   resources :users
   get '/log-in'  => 'sessions#new'
   post '/log-in' => 'sessions#create'

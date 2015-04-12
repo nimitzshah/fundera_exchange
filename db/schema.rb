@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150411201009) do
+ActiveRecord::Schema.define(version: 20150412104740) do
+
+  create_table "posts", force: :cascade do |t|
+    t.string  "type"
+    t.integer "parent_id"
+    t.integer "index"
+    t.string  "text"
+  end
+
+  add_index "posts", ["parent_id"], name: "index_posts_on_parent_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email"
@@ -19,7 +28,7 @@ ActiveRecord::Schema.define(version: 20150411201009) do
     t.string   "password_salt"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
-    t.boolean  "guest",                         default: false
+    t.boolean  "guest",         default: false
   end
 
 end
