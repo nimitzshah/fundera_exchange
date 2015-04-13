@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20150412104740) do
     t.integer "parent_id"
     t.integer "index"
     t.string  "text"
+    t.integer "rating"
   end
 
   add_index "posts", ["parent_id"], name: "index_posts_on_parent_id"

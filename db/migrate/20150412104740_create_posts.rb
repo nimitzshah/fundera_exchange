@@ -4,6 +4,7 @@ class CreatePosts < ActiveRecord::Migration
       t.string :type
       t.integer :parent_id, :index
       t.string :text
+      t.integer :rating
     end
     add_index :posts,[:parent_id]
   end
