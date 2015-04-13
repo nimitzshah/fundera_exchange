@@ -16,9 +16,8 @@ ActiveRecord::Schema.define(version: 20150412104740) do
   create_table "posts", force: :cascade do |t|
     t.string  "type"
     t.integer "parent_id"
-    t.integer "index"
     t.string  "text"
-    t.integer "rating"
+    t.integer "rating",    default: 0
   end
 
   add_index "posts", ["parent_id"], name: "index_posts_on_parent_id"
