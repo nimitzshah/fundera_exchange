@@ -1,2 +1,6 @@
 <h1> Welcome to my website <%=current_user.name %></h1>
 <%=link_to "Submit a question", '/questions/new', options = {method: :get} %>
+<% questions.each do |question|%>
+  <br \>
+  <%= link_to question.text, "/questions/#{question.id}" %>
+<% end %>

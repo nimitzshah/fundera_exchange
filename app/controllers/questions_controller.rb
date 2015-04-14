@@ -1,8 +1,8 @@
 class QuestionsController < ApplicationController
+  include QuestionHelper
   before_action :current_user?
+
   def index
-    @questions = Post.where(:type=>"Question")
-    byebug
   end
 
   def create
@@ -16,7 +16,7 @@ class QuestionsController < ApplicationController
   end
 
   def show
-
   end
 
+  helper_method :questions,:question
 end

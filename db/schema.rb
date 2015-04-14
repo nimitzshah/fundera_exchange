@@ -14,10 +14,11 @@
 ActiveRecord::Schema.define(version: 20150412104740) do
 
   create_table "posts", force: :cascade do |t|
-    t.string  "type"
-    t.integer "parent_id"
-    t.string  "text"
-    t.integer "rating",    default: 0
+    t.string   "type"
+    t.integer  "parent_id"
+    t.string   "text"
+    t.integer  "rating",        default: 0
+    t.datetime "creation_time", default: '2015-04-14 00:25:06'
   end
 
   add_index "posts", ["parent_id"], name: "index_posts_on_parent_id"
