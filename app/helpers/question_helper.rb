@@ -1,6 +1,6 @@
 module QuestionHelper
   def questions
-    questions = Post.where(:type=>"Question")
+    questions = Post.where(:type=>"Question").order(creation_time: :desc)
     questions
   end
 

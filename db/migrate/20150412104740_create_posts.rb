@@ -5,8 +5,9 @@ class CreatePosts < ActiveRecord::Migration
       t.integer :parent_id
       t.string :text
       t.integer :rating, :default =>0
-      t.datetime :creation_time,:default=> Time.now
+      t.datetime :creation_time
     end
     add_index :posts,[:parent_id]
+    add_index :posts ,[:creation_time]
   end
 end

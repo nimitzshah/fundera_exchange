@@ -3,4 +3,5 @@
 <% questions.each do |question|%>
   <br \>
   <%= link_to question.text, "/questions/#{question.id}" %>
+  <%= question.creation_time %>
 <% end %>
