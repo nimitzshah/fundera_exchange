@@ -11,11 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150414015833) do
+ActiveRecord::Schema.define(version: 20150415232547) do
+
+  create_table "comments", force: :cascade do |t|
+    t.string   "text"
+    t.datetime "creation_date"
+    t.integer  "post_id"
+  end
 
   create_table "posts", force: :cascade do |t|
     t.string   "type"
     t.integer  "parent_id"
+    t.string   "topic"
+    t.integer  "view_count"
     t.string   "text"
     t.integer  "rating",        default: 0
     t.datetime "creation_time"

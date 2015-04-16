@@ -6,8 +6,8 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    if params[:comment][:text]
-      @question = Post.new(text:params[:comment][:text],type:"Question")
+    if params[:body][:text]
+      @question = Post.new(text:params[:body][:text],type:"Question")
       @question.save
       redirect_to '/questions',:flash=> {:notice => "Question completed"}
     else
