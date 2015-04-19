@@ -1,5 +1,9 @@
 class AnswersController < ApplicationController
-  def new
-    
+
+  def create
+    redirect_to '/questions/show'
+  end
+
+  def edit
   end
 end

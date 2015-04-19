@@ -1,3 +1,8 @@
 <% question = question(params["id"]) %>
 <h3><%= question.text %></h3>
 <%= link_to "answer",action="/answers/new",options={method: :get}%>
+<h3> Your Answer  </h3>
+<%=form_tag("/answers") do %>
+  <%= text_area(:body,:text,size:"40x20") %>
+  <%=submit_tag "Submit" %>
+<% end %>

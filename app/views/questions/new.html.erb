@@ -1,5 +1,5 @@
 <h2>How can we help you? </h2>
 <%= form_tag("/questions") do %>
-  <%= text_area(:text,:text,size: "40x20") %>
+  <%= text_area(:body,:text,size: "40x20") %>
   <%=submit_tag "Submit" %>
 <% end %>
