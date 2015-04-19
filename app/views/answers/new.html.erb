@@ -1,0 +1,5 @@
+<h3> Your Answer  </h3>
+<%=form_tag("/answers") do %>
+  <%= text_area(:body,:text,size:"40x20") %>
+  <%=submit_tag "Submit" %>
+<% end %>

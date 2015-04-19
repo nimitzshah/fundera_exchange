@@ -1,8 +1,9 @@
 <% question = question(params["id"]) %>
 <h3><%= question.text %></h3>
-<%= link_to "answer",action="/answers/new",options={method: :get}%>
 <h3> Your Answer  </h3>
-<%=form_tag("/answers") do %>
-  <%= text_area(:body,:text,size:"40x20") %>
-  <%=submit_tag "Submit" %>
+
+<%= form_tag "/answers" do %>
+  <%= text_area(:answer,:text,size: "40x20") %>
+  <%= hidden_field_tag 'parent_id', params["id"] %>
+  <%= submit_tag "Submit" %>
 <% end %>
