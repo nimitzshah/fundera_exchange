@@ -1,5 +1,10 @@
-<% question = question(params["id"]) %>
+<% question = get_question(params["id"]) %>
+<% answers  = get_answers(params["id"]) %>
 <h3><%= question.text %></h3>
+<% answers.each do |answer| %>
+  <%= answer.text%> <%= answer.creation_time %>
+  <br />
+<% end %>
 <h3> Your Answer  </h3>
 
 <%= form_tag "/answers" do %>

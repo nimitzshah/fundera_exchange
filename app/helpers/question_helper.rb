@@ -4,8 +4,13 @@ module QuestionHelper
     questions
   end
 
-  def question(id)
+  def get_question(id)
     question = Post.find(id)
     question
+  end
+
+  def get_answers(id)
+    answers = Post.where(:parent_id => id).order(creation_time: :desc)
+    answers
   end
 end

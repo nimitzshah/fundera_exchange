@@ -18,5 +18,5 @@ class QuestionsController < ApplicationController
   def show
   end
 
-  helper_method :questions,:question
+  helper_method :questions,:get_question,:get_answers
 end
